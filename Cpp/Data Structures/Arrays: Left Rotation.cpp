@@ -23,10 +23,15 @@
 
 using namespace std;
 
-vector<int> array_left_rotation(vector<int> a, int n, int k) {
-    
+void array_left_rotation(vector<int>& a, int k) {
+    /*while(k--)
+    {
+        int temp = a[0];
+        a.erase(a.begin());
+        a.push_back(temp);   
+    }*/
+    rotate(a.begin(),a.begin()+k,a.end());
 }
-
 int main(){
     int n;
     int k;
@@ -35,9 +40,10 @@ int main(){
     for(int a_i = 0;a_i < n;a_i++){
         cin >> a[a_i];
     }
-    vector<int> output = array_left_rotation(a, n, k);
+    array_left_rotation(a,k);
     for(int i = 0; i < n;i++)
-        cout << output[i] << " ";
+        cout << a[i] << " ";
     cout << endl;
     return 0;
 }
+
